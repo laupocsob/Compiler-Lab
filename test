@@ -1,0 +1,35 @@
+decl
+integer id1,id2,id3,id4,id5,id6,id7,id8,id9;
+boolean bok; 
+enddecl
+integer main(){
+decl
+integer as,bi,c;
+boolean car;
+enddecl
+begin
+id3=id4;
+
+if (id1==id2) then
+id3=id4;
+if ((id1==bi) AND id4==id5) then
+id3=id4;
+id7=id5+9;
+endif;
+endif;
+
+id3=id4;
+
+if (NOT TRUE) then
+id3=id4;
+endif;
+
+
+while (id3==id4) do
+id7=9;
+endwhile;
+
+return 0;
+end
+
+}
