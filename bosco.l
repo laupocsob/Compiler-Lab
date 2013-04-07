@@ -30,10 +30,10 @@ decl     {return DECL;}
 enddecl  {return ENDDECL;}
 integer   {return INTEGER;}
 boolean {return BOOLEAN;}
-write  {yylval.ptr=makenode('r',NULL,0);return WRITE;}
-read   {yylval.ptr=makenode('w',NULL,0);return READ;}
-TRUE {yylval.ptr=makenode('t',NULL,0);return BIN;}
-FALSE {yylval.ptr=makenode('f',NULL,0);return BIN;}
+write  {yylval.ptr=makenode('w',NULL,0);return WRITE;}
+read   {yylval.ptr=makenode('r',NULL,0);return READ;}
+TRUE {yylval.ptr=makenode('b',NULL,1);return BIN;}
+FALSE {yylval.ptr=makenode('b',NULL,0);return BIN;}
 [0-9]+  {yylval.ptr=makenode('c',NULL,atoi(yytext));return NUMBER;}     
 {letter}({letter}|{digit})*   {char *s=malloc(sizeof(yyleng));strcpy(s,yytext);yylval.ptr=makenode('v',s,0); return ID;}
 ">" {yylval.ptr=makenode('g',NULL,0);return RELOP;}
@@ -41,7 +41,7 @@ FALSE {yylval.ptr=makenode('f',NULL,0);return BIN;}
 ">=" {yylval.ptr=makenode('G',NULL,0);return RELOP;}
 "<=" {yylval.ptr=makenode('L',NULL,0);return RELOP;}
 "==" {yylval.ptr=makenode('e',NULL,0);return RELOP;}
-"!=" {yylval.ptr=makenode('n',NULL,0);return RELOP;}
+"!=" {yylval.ptr=makenode('N',NULL,0);return RELOP;}
 "+"       {yylval.ptr=makenode(*yytext,NULL,0);return PLUS;}
 "-"       {yylval.ptr=makenode(*yytext,NULL,0);return MINUS;}
 "*"       {yylval.ptr=makenode(*yytext,NULL,0);return MUL;}
@@ -70,7 +70,7 @@ ptr1->c1=NULL;
 ptr1->c2=NULL;
 ptr1->c3=NULL;
 ptr1->value=value;
-ptr1->type=-1;
+ptr1->type=-1;	
 return ptr1;
 }
 

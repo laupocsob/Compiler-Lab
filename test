@@ -1,35 +1,17 @@
-decl
-integer id1,id2,id3,id4,id5,id6,id7,id8,id9;
-boolean bok; 
-enddecl
-integer main(){
-decl
-integer as,bi,c;
-boolean car;
-enddecl
+integer main()
+{
+decl integer k; enddecl
 begin
-id3=id4;
-
-if (id1==id2) then
-id3=id4;
-if ((id1==bi) AND id4==id5) then
-id3=id4;
-id7=id5+9;
+k=5;
+read(k);
+while(k>1)
+do if(k==2)
+then k=k-1;
+else k=k-1;
 endif;
-endif;
-
-id3=id4;
-
-if (NOT TRUE) then
-id3=id4;
-endif;
-
-
-while (id3==id4) do
-id7=9;
+k=k-1;
+write(k);
 endwhile;
-
-return 0;
+return 1;
 end
-
 }
